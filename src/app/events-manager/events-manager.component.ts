@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { events } from '../events-list';
+import { events } from '../data/events-list';
 
 @Component({
   selector: 'app-events-manager',
