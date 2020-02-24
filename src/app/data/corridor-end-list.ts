@@ -1,23 +1,23 @@
-export const corridorContents = [
+export const corridorEnds = [
   {
     id: 1,
-    desc: '1 gene point'
+    desc: 'T'
   },
   {
     id: 2,
-    desc: '1 door'
+    desc: 'X'
   },
   {
     id: 3,
-    desc: ' 1 blip'
+    desc: 'left'
   },
   {
     id: 4,
-    desc: '1 gene point'
+    desc: 'right'
   },
   {
     id: 5,
-    desc: 'empty'
+    desc: 'closed'
   },
   {
     id: 6,
