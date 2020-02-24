@@ -1,50 +1,54 @@
 export const events = [
   {
-    id: 1,
-    desc: 'corridor'
-  },
-  {
-    id: 2,
-    desc: 'room'
-  },
-  {
-    id: 3,
-    desc: 'corridor2'
-  },
-  {
-    id: 4,
-    desc: 'corridor'
-  },
-  {
-    id: 5,
-    desc: 'room'
-  },
-  {
-    id: 6,
-    desc: 'corridor2'
-  },
-  {
-    id: 7,
-    desc: 'corridor'
-  },
-  {
-    id: 8,
-    desc: 'room'
-  },
-  {
-    id: 9,
-    desc: 'corridor2'
-  },
-  {
     id: 10,
-    desc: 'corridor'
+    desc: '11'
   },
   {
     id: 11,
-    desc: 'room'
+    desc: '11'
   },
   {
     id: 12,
-    desc: 'corridor2'
+    desc: '12'
+  },
+  {
+    id: 13,
+    desc: '13'
+  },
+  {
+    id: 14,
+    desc: '14'
+  },
+  {
+    id: 15,
+    desc: '15'
+  },
+  {
+    id: 16,
+    desc: '16'
+  },
+  {
+    id: 21,
+    desc: '21'
+  },
+  {
+    id: 22,
+    desc: '22'
+  },
+  {
+    id: 23,
+    desc: '23'
+  },
+  {
+    id: 24,
+    desc: '24'
+  },
+  {
+    id: 25,
+    desc: '25'
+  },
+  {
+    id: 26,
+    desc: '26'
   }
 ];

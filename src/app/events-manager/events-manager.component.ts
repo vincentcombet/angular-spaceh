@@ -9,7 +9,9 @@ import { events } from '../events-list';
 })
 export class EventsManagerComponent implements OnInit {
   currentEvent = "none";
-  d12 = 0;
+  d3 = 0;
+  d6 = 0;
+  value = 0;
 
   events = events;
 
@@ -19,9 +21,11 @@ export class EventsManagerComponent implements OnInit {
   }
 
   generateEvent() {
-    this.d12 = Math.floor((Math.random() * 12) + 1);
+    this.d3 = Math.floor((Math.random() * 3) + 1);
+    this.d6 = Math.floor((Math.random() * 6) + 1);
+    this.value = this.d3*10 + this.d6;
 
-    this.currentEvent = events[this.d12 - 1].desc;
+    this.currentEvent = events.find(x => x.id == this.value).desc;
   }
 
 }
