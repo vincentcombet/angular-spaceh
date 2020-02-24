@@ -9,7 +9,7 @@ import { events } from '../events-list';
 })
 export class EventsManagerComponent implements OnInit {
   currentEvent = "none";
-  d3 = 0;
+  d12 = 0;
 
   events = events;
 
@@ -19,9 +19,9 @@ export class EventsManagerComponent implements OnInit {
   }
 
   generateEvent() {
-    this.d3 = Math.floor((Math.random() * 3) + 1);
+    this.d12 = Math.floor((Math.random() * 12) + 1);
 
-    this.currentEvent = events[this.d3].desc;
+    this.currentEvent = events[this.d12 - 1].desc;
   }
 
 }

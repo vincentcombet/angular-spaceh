@@ -10,39 +10,41 @@ export const events = [
   {
     id: 3,
     desc: 'corridor2'
-  },{
-    id: 1,
+  },
+  {
+    id: 4,
     desc: 'corridor'
   },
   {
-    id: 2,
+    id: 5,
     desc: 'room'
   },
   {
-    id: 3,
+    id: 6,
     desc: 'corridor2'
   },
   {
-    id: 1,
+    id: 7,
     desc: 'corridor'
   },
   {
-    id: 2,
+    id: 8,
     desc: 'room'
   },
   {
-    id: 3,
+    id: 9,
     desc: 'corridor2'
-  },{
-    id: 1,
+  },
+  {
+    id: 10,
     desc: 'corridor'
   },
   {
-    id: 2,
+    id: 11,
     desc: 'room'
   },
   {
-    id: 3,
+    id: 12,
     desc: 'corridor2'
   }
 ];
