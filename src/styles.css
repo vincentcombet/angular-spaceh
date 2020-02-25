@@ -1,8 +1,16 @@
 /* Add application styles & imports to this file! */
 
-* {
-  background-image: url("/assets/img/background.jpg");
-  color: #FFFFFF
+body {
+  background: black;
+}
+
+div.back {
+  background: black;
+  background-image: linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.80)), url("https://github.com/vincentcombet/angular-spaceh/blob/master/src/assets/img/background.jpg?raw=true" );
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: #FFFFFF;
+  height: 850px;
 }
 
 h1 {
