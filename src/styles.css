@@ -1,1 +1,14 @@
 /* Add application styles & imports to this file! */
+
+* {
+  background: #000000;
+  color: #FFFFFF
+}
+
+h1 {
+  color: #c6af59
+}
+
+h3 {
+  color: #c6af59
+}
