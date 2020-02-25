@@ -11,7 +11,8 @@ import { rooms } from '../data/rooms-list';
   styleUrls: ['./exploration-manager.component.css']
 })
 export class ExplorationManagerComponent implements OnInit {
-  currentPlace = "none";
+  currentCorridor = "none";
+  currentRoom = "none";
   explorationD12 = 0;
   corridorContentD6 = 0;
   corridorEndD6 = 0;
@@ -27,26 +28,53 @@ export class ExplorationManagerComponent implements OnInit {
   }
 
   explorate() {
-    this.explorationD12 = Math.floor((Math.random() * 11) + 2);
+    this.explorationD12 = 9;//Math.floor((Math.random() * 11) + 2);
 
     var explorationResult = explorations.find(x => x.id == this.explorationD12).desc;
 
     if (explorationResult == "room") {
-      this.roomD6 = Math.floor((Math.random() * 6) + 1);
+      this.currentRoom = this.generateRoom();
+      this.currentCorridor = "none";
+    } else {
+      this.currentCorridor = explorationResult + this.generateCorridor();
+      if (explorationResult.indexOf("room") != -1) {
+        this.currentRoom = this.generateRoom();
+      } else if (explorationResult.indexOf("relaunch") != -1) {
+        // FIXME
+        this.explorationD12 = Math.floor((Math.random() * 11) + 2);
+        while (this.explorationD12 == 7) {
+          this.explorationD12 = Math.floor((Math.random() * 11) + 2);
+        }
+        var explorationResult2 = explorations.find(x => x.id == this.explorationD12).desc;
+        this.currentCorridor = this.currentCorridor.replace("relaunch", "(" + explorationResult2 + ")");
+      } else {
+        this.currentRoom = "none";
+      }
+    }
+  }
+
+  generateRoom() {
+    this.roomD6 = Math.floor((Math.random() * 6) + 1);
       var indexRoom = this.roomD6 + this.nbDiscoveredRooms;
       if (indexRoom > 8) {
         indexRoom = 8;
       }
-      this.currentPlace = rooms.find(x => x.id == indexRoom).desc;
+      var tempRoom = rooms.find(x => x.id == indexRoom).desc;
       this.nbDiscoveredRooms++;
-    } else {
-      this.corridorContentD6 = Math.floor((Math.random() * 6) + 1);
+
+      return tempRoom;
+  }
+
+  generateCorridor() {
+    this.corridorContentD6 = Math.floor((Math.random() * 6) + 1);
       var content = corridorContents.find(x => x.id == this.corridorContentD6).desc;
 
       this.corridorEndD6 = Math.floor((Math.random() * 6) + 1);
       var end = corridorEnds.find(x => x.id == this.corridorEndD6).desc;
 
-      this.currentPlace = explorationResult + " (content: " + content + ", end: " + end + ")";
-    }
+      var tempCorridor = " (content: " + content + ", end: " + end + ")";
+
+      return tempCorridor;
+      
   }
 }
