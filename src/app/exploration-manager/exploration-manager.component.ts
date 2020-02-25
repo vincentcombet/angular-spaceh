@@ -34,7 +34,7 @@ export class ExplorationManagerComponent implements OnInit {
         this.currentRoom = this.generateRoom();
       } else if (explorationResult.indexOf("relaunch") != -1) {
         var explorationD12 = Math.floor((Math.random() * 11) + 2);
-        while (explorationD12 == 7) {
+        while (explorationD12 == 7 || explorationD12 == 9) {
           explorationD12 = Math.floor((Math.random() * 11) + 2);
         }
         var explorationResult2 = explorations.find(x => x.id == explorationD12).desc;
