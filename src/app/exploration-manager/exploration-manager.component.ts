@@ -15,8 +15,6 @@ export class ExplorationManagerComponent implements OnInit {
   currentRoom = "none";
   nbDiscoveredRooms = 0;
 
-  explorations = explorations;
-
   constructor() { }
 
   ngOnInit() {
@@ -35,14 +33,17 @@ export class ExplorationManagerComponent implements OnInit {
       if (explorationResult.indexOf("room") != -1) {
         this.currentRoom = this.generateRoom();
       } else if (explorationResult.indexOf("relaunch") != -1) {
-        // FIXME
         var explorationD12 = Math.floor((Math.random() * 11) + 2);
         while (explorationD12 == 7) {
           explorationD12 = Math.floor((Math.random() * 11) + 2);
         }
         var explorationResult2 = explorations.find(x => x.id == explorationD12).desc;
         this.currentCorridor = this.currentCorridor.replace("relaunch", "(" + explorationResult2 + ")");
-        this.currentRoom = "none";
+        if (explorationResult2.indexOf("room") != -1) {
+          this.currentRoom = this.generateRoom();
+        } else {
+          this.currentRoom = "none";
+        }
       } else {
         this.currentRoom = "none";
       }
