@@ -17,7 +17,7 @@ export const events = [
   },
   {
     id: 15,
-    desc: '<b>Jet de vapeur (3)</b><br />Les blips à plus de 4 cases peuvent se déplacer dans la LDV des Space Marines sans être révélés. Les Genestealers à plus de 4 cases sont touchés que sur 6 y compris en tir soutenu.'
+    desc: '<b>Jet de vapeur (3)</b><br />De blanchâtres fumées inondent les couloirs sombres. Les blips à plus de 4 cases peuvent se déplacer dans la LDV des Space Marines sans être révélés. Les Genestealers à plus de 4 cases sont touchés que sur 6 y compris en tir soutenu.'
   },
   {
     id: 16,
@@ -25,7 +25,7 @@ export const events = [
   },
   {
     id: 21,
-    desc: '<b>Trou dans le sol</b><br />De blanchâtres fumées inondent les couloirs sombres. Placez un trou sur la cible de la mission. Ce Space Marine doit dépenser 2 PA, venant de ses actions et non Commandement, pour le relever pendant son tour. Ce trou est un point d\'entrée Genestealer (limité à 2 trous par partie).'
+    desc: '<b>Trou dans le sol</b><br />Placez un trou sur la cible de la mission. Ce Space Marine doit dépenser 2 PA, venant de ses actions et non Commandement, pour le relever pendant son tour. Ce trou est un point d\'entrée Genestealer (limité à 2 trous par partie).'
   },
   {
     id: 22,
@@ -65,7 +65,7 @@ export const events = [
   },
   {
     id: 35,
-    desc: '<b>J\ai des signaux partout ! (6)</b><br />Tournez chaque Space Marine afin qu\ils soient tous dos aux blips et Genestealers.'
+    desc: '<b>J\'ai des signaux partout ! (6)</b><br />Tournez chaque Space Marine afin qu\ils soient tous dos aux blips et Genestealers.'
   },
   {
     id: 36,
