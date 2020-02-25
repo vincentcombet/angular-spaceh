@@ -25,7 +25,7 @@ export const events = [
   },
   {
     id: 21,
-    desc: '<b>Trou dans le sol</b><br />Placez un trou sur la cible de la mission. Ce Space Marine doit dépenser 2 PA, venant de ses actions et non Commandement, pour le relever pendant son tour. Ce trou est un point d\'entrée Genestealer (limité à 2 trous par partie).'
+    desc: '<b>Trou dans le sol</b><br />De blanchâtres fumées inondent les couloirs sombres. Placez un trou sur la cible de la mission. Ce Space Marine doit dépenser 2 PA, venant de ses actions et non Commandement, pour le relever pendant son tour. Ce trou est un point d\'entrée Genestealer (limité à 2 trous par partie).'
   },
   {
     id: 22,

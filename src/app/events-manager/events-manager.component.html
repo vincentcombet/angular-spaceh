@@ -1,10 +1,8 @@
-<p>
-Event: {{d3}} / {{d6}} = {{value}}
-</p>
+<h3>
+Events
+</h3>
+<button (click)=generateEvent()>
+  Generate event
+</button>
+<p></p>
 <div [innerHTML]="currentEvent"></div>
-
-<p>
-  <button (click)=generateEvent()>
-    Generate event
-  </button>
-</p>
