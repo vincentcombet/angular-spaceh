@@ -42,6 +42,7 @@ export class ExplorationManagerComponent implements OnInit {
         }
         var explorationResult2 = explorations.find(x => x.id == explorationD12).desc;
         this.currentCorridor = this.currentCorridor.replace("relaunch", "(" + explorationResult2 + ")");
+        this.currentRoom = "none";
       } else {
         this.currentRoom = "none";
       }
