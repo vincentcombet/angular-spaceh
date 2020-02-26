@@ -14,6 +14,7 @@ export class ExplorationManagerComponent implements OnInit {
   currentCorridor = "none";
   currentRoom = "none";
   nbDiscoveredRooms = 0;
+  firstAttempt = true;
 
   constructor() { }
 
@@ -59,6 +60,10 @@ export class ExplorationManagerComponent implements OnInit {
     var tempRoom = rooms.find(x => x.id == indexRoom).desc;
     this.nbDiscoveredRooms++;
 
+    if (this.firstAttempt) {
+      this.firstAttempt = false;
+    }
+
     return tempRoom;
   }
 
@@ -69,9 +74,16 @@ export class ExplorationManagerComponent implements OnInit {
     var corridorEndD6 = Math.floor((Math.random() * 6) + 1);
     var end = corridorEnds.find(x => x.id == corridorEndD6).desc;
 
-    var tempCorridor = " (content: " + content + ", end: " + end + ")";
+    var end2 = "";
+    if (this.firstAttempt) {
+      corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+      end2 = corridorEnds.find(x => x.id == corridorEndD6).desc;
+      end2 = ", end2: " + end2;
+      this.firstAttempt = false;
+    }
+
+    var tempCorridor = " (content: " + content + ", end: " + end + end2 + ")";
 
     return tempCorridor;
-
   }
 }
