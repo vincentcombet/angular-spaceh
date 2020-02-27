@@ -7,7 +7,7 @@ body, html {
 
 div.container {
   background: black;
-  /*background-image: linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.80)), url("https://github.com/vincentcombet/angular-spaceh/blob/master/src/assets/img/background.jpg?raw=true" );*/
+  background-image: linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.80)), url("https://github.com/vincentcombet/angular-spaceh/blob/master/src/assets/img/background.jpg?raw=true" );
   background-repeat: no-repeat;
   background-size: 100% auto;
   color: #FFFFFF;
@@ -17,10 +17,10 @@ div.container {
 button {
   background-color: #c6af59;
   color: #ffffff;
-
+  border: 1px solid #FFFFFF
 }
 
-button:hover {
+button:active {
   background-color: #ffffff;
   color: #c6af59;
   
