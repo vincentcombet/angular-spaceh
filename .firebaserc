@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "spaceh-vco": {
+      "hosting": {
+        "spaceh": [
+          "spaceh-vco"
+        ]
+      }
+    }
+  }
+}
