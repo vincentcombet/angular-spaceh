@@ -15,6 +15,7 @@ export class ExplorationManagerComponent implements OnInit {
   currentRoom = "none";
   nbDiscoveredRooms = 0;
   firstAttempt = true;
+  explorationD12: number = 0;
 
   constructor() { }
 
@@ -22,9 +23,9 @@ export class ExplorationManagerComponent implements OnInit {
   }
 
   explorate() {
-    var explorationD12 = Math.floor((Math.random() * 11) + 2);
+    this.explorationD12 = Math.floor((Math.random() * 11) + 2);
 
-    var explorationResult = explorations.find(x => x.id == explorationD12).desc;
+    var explorationResult = explorations.find(x => x.id == this.explorationD12).desc;
 
     if (explorationResult == "room") {
       this.currentRoom = this.generateRoom();
@@ -34,11 +35,11 @@ export class ExplorationManagerComponent implements OnInit {
       if (explorationResult.indexOf("room") != -1) {
         this.currentRoom = this.generateRoom();
       } else if (explorationResult.indexOf("relaunch") != -1) {
-        var explorationD12 = Math.floor((Math.random() * 11) + 2);
-        while (explorationD12 == 7 || explorationD12 == 9) {
-          explorationD12 = Math.floor((Math.random() * 11) + 2);
+        this.explorationD12 = Math.floor((Math.random() * 11) + 2);
+        while (this.explorationD12 == 7 || this.explorationD12 == 9) {
+          this.explorationD12 = Math.floor((Math.random() * 11) + 2);
         }
-        var explorationResult2 = explorations.find(x => x.id == explorationD12).desc;
+        var explorationResult2 = explorations.find(x => x.id == this.explorationD12).desc;
         this.currentCorridor = this.currentCorridor.replace("relaunch", "(" + explorationResult2 + ")");
         if (explorationResult2.indexOf("room") != -1) {
           this.currentRoom = this.generateRoom();
