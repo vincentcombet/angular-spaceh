@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { EventsManagerComponent } from './events-manager/events-manager.component';
 import { ExplorationManagerComponent } from './exploration-manager/exploration-manager.component';
+import { ToolBarComponent } from './tool-bar/tool-bar.component';
+import { GlobalComponent } from './global/global.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, EventsManagerComponent, ExplorationManagerComponent ],
+  declarations: [ AppComponent, HelloComponent, EventsManagerComponent, ExplorationManagerComponent, ToolBarComponent, GlobalComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
