@@ -22,6 +22,14 @@ export class ExplorationManagerComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset() {
+    this.currentCorridor = "none";
+    this.currentRoom = "none";
+    this.nbDiscoveredRooms = 0;
+    this.firstAttempt = true;
+    this.explorationD12 = 0;
+  }
+
   explorate() {
     this.explorationD12 = Math.floor((Math.random() * 11) + 2);
 
@@ -61,10 +69,6 @@ export class ExplorationManagerComponent implements OnInit {
     var tempRoom = rooms.find(x => x.id == indexRoom).desc;
     this.nbDiscoveredRooms++;
 
-    if (this.firstAttempt) {
-      this.firstAttempt = false;
-    }
-
     return tempRoom;
   }
 
@@ -77,7 +81,14 @@ export class ExplorationManagerComponent implements OnInit {
 
     var end2 = "";
     if (this.firstAttempt) {
+      while (corridorEndD6 == 5) {
+        corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+        end = corridorEnds.find(x => x.id == corridorEndD6).desc;
+      }
       corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+      while (corridorEndD6 == 5) {
+        corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+      }
       end2 = corridorEnds.find(x => x.id == corridorEndD6).desc;
       end2 = ", end2: " + end2;
       this.firstAttempt = false;

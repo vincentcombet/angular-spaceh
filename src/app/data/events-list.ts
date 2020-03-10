@@ -53,7 +53,7 @@ export const events = [
   },
   {
     id: 32,
-    desc: '<b>Réapprovisionnement</b><br />Obtenez +2 PA lors de votre prochaine pioche de points de commandement, maximum 6.'
+    desc: '<b>Réapprovisionnement</b><br />Obtenez +2 PC lors de votre prochaine pioche de points de commandement, maximum 6.'
   },
   {
     id: 33,

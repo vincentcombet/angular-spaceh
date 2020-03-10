@@ -1,16 +1,16 @@
 <div class="row">
     <div class="col text-center">
-        <button>Start New</button>
+        <button (click)=startGame()>Start New</button>
         
-        <button>Next Player</button>
-        <div>Tour Space Marine</div>
+        <button (click)=changePlayer() [disabled]="!gameStarted">Next Player</button>
+        <div>Round {{roundNb}} | Tour {{currentPlayer}}</div>
     </div>
 </div>
 <hr/>
 <div class="card-deck mb-2">
     <div class="card mb-4 bg-transparent border-primary">
         <div class="card-header bg-transparent text-primar border-primary">
-            Space Marine
+            Space Marine {{commandPoint}} <button (click)=calculateCP() [hidden]="currentPlayer != 'Space Marine'">!</button>
         </div>
         <div class="card-body bg-transparent border-primary">
             <app-exploration-manager></app-exploration-manager>
@@ -18,10 +18,10 @@
     </div>
     <div class="card mb-4 bg-transparent border-primary">
         <div class="card-header bg-transparent border-primary">
-            Genestealers
+            Genestealers {{blips}}
         </div>
         <div class="card-body bg-transparent border-primary">
-            <app-events-manager></app-events-manager>
+            <app-events-manager #eventManager></app-events-manager>
         </div>
     </div>
 </div>

@@ -29,6 +29,10 @@ button:active {
   
 }
 
+button:disabled {
+  background-color: grey;
+}
+
 h1 {
   color: #0086CC;
 }

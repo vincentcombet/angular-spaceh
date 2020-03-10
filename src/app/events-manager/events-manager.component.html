@@ -1,10 +1,7 @@
 <div>
   <h3>
-    Events ({{value}})
+    Events ({{value}}) <button (click)=generateEvent()>!</button>
     </h3>
-    <button (click)=generateEvent()>
-      Generate event
-    </button>
     <p></p>
     <div [innerHTML]="currentEvent"></div>
 </div>

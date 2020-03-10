@@ -20,6 +20,13 @@ export class EventsManagerComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset() {
+    this.currentEvent = "none";
+    this.d3 = 0;
+    this.d6 = 0;
+    this.value = 0;
+  }
+
   generateEvent() {
     this.d3 = Math.floor((Math.random() * 3) + 1);
     this.d6 = Math.floor((Math.random() * 6) + 1);
