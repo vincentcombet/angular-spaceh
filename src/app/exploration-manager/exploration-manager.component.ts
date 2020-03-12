@@ -17,6 +17,7 @@ export class ExplorationManagerComponent implements OnInit {
   firstAttempt = true;
   explorationD12: number = 0;
   roomRate = 4;
+  nbTurn = 0;
 
   constructor() { }
 
@@ -32,13 +33,22 @@ export class ExplorationManagerComponent implements OnInit {
     this.roomRate = 4;
   }
 
+  explorate_loop() {
+    this.nbTurn = 0;
+    this.reset();
+    while (this.currentRoom != "Objective room") {
+      this.explorate();
+      this.nbTurn++;
+    }
+  }
+
   explorate() {
     // 4+ room (in room list) otherwise corridor (exploration list)
     // Each time a corridor is found, -1 to find a room, each time a room is found, +1 to find a room
 
     var firstExplore = Math.floor((Math.random() * 6) + 1);
     //console.log("Begin room rate: " + this.roomRate);
-    console.log("First explore: " + firstExplore);
+    //console.log("First explore: " + firstExplore);
     
     if (firstExplore >= this.roomRate) {
       //Room
@@ -47,19 +57,19 @@ export class ExplorationManagerComponent implements OnInit {
       this.currentRoom = this.generateRoom();
       this.currentCorridor = "none";
       this.explorationD12 = 0;
-      this.roomRate+=2;
+      this.roomRate < 6 ? this.roomRate+=2:this.roomRate;
     } else {
       // Corridor
       //console.log("CORRIDOR !!");
 
       this.explorate2();
       if (this.explorationD12 == 4 || this.explorationD12 == 10 || this.explorationD12 == 12) {
-        this.roomRate+=2;
+        this.roomRate < 6 ? this.roomRate+2:this.roomRate;
       } else if (this.explorationD12 != 7) {
-        this.roomRate--;
+        this.roomRate > 1 ? this.roomRate-=2:this.roomRate;
       }
     }
-    console.log("Final room rate: " + this.roomRate);
+    //console.log("Final room rate: " + this.roomRate);
   }
 
   
