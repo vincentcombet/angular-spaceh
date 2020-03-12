@@ -64,7 +64,7 @@ export class ExplorationManagerComponent implements OnInit {
 
       this.explorate2();
       if (this.explorationD12 == 4 || this.explorationD12 == 10 || this.explorationD12 == 12) {
-        this.roomRate < 6 ? this.roomRate+2:this.roomRate;
+        this.roomRate < 6 ? this.roomRate+=2:this.roomRate;
       } else if (this.explorationD12 != 7) {
         this.roomRate > 1 ? this.roomRate-=2:this.roomRate;
       }
