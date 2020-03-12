@@ -48,25 +48,25 @@ export class ExplorationManagerComponent implements OnInit {
 
     var firstExplore = Math.floor((Math.random() * 6) + 1);
     //console.log("Begin room rate: " + this.roomRate);
-    //console.log("First explore: " + firstExplore);
+    console.log("First explore: " + firstExplore);
     
-    if (firstExplore >= this.roomRate) {
+    if (firstExplore >= this.roomRate && this.explorationD12 != 7) {
       //Room
       //console.log("ROOM !!");
       
       this.currentRoom = this.generateRoom();
       this.currentCorridor = "none";
       this.explorationD12 = 0;
-      this.roomRate < 6 ? this.roomRate+=2:this.roomRate;
+      this.roomRate < 6 ? this.roomRate+=3:this.roomRate;
     } else {
       // Corridor
       //console.log("CORRIDOR !!");
 
       this.explorate2();
       if (this.explorationD12 == 4 || this.explorationD12 == 10 || this.explorationD12 == 12) {
-        this.roomRate < 6 ? this.roomRate+=2:this.roomRate;
+        this.roomRate < 6 ? this.roomRate+=3:this.roomRate;
       } else if (this.explorationD12 != 7) {
-        this.roomRate > 1 ? this.roomRate-=2:this.roomRate;
+        this.roomRate > 2 ? this.roomRate-=2:this.roomRate;
       }
     }
     //console.log("Final room rate: " + this.roomRate);
