@@ -4,11 +4,13 @@ import { explorations } from '../data/explorations-list';
 import { corridorContents } from '../data/corridor-content-list';
 import { corridorEnds } from '../data/corridor-end-list';
 import { rooms } from '../data/rooms-list';
+import { MathsServiceService } from '../helper/maths-service.service';
 
 @Component({
   selector: 'app-exploration-manager',
   templateUrl: './exploration-manager.component.html',
-  styleUrls: ['./exploration-manager.component.css']
+  styleUrls: ['./exploration-manager.component.css'],
+  providers: [MathsServiceService]
 })
 export class ExplorationManagerComponent implements OnInit {
   currentCorridor = "none";
@@ -19,7 +21,7 @@ export class ExplorationManagerComponent implements OnInit {
   roomRate = 4;
   nbTurn = 0;
 
-  constructor() { }
+  constructor(private mathService: MathsServiceService) { }
 
   ngOnInit() {
   }
@@ -46,36 +48,36 @@ export class ExplorationManagerComponent implements OnInit {
     // 4+ room (in room list) otherwise corridor (exploration list)
     // Each time a corridor is found, -1 to find a room, each time a room is found, +1 to find a room
 
-    var firstExplore = Math.floor((Math.random() * 6) + 1);
+    var firstExplore = this.mathService.getRandomValue(6);
     //console.log("Begin room rate: " + this.roomRate);
     console.log("First explore: " + firstExplore);
-    
+
     if (firstExplore >= this.roomRate && this.explorationD12 != 7) {
       //Room
       //console.log("ROOM !!");
-      
+
       this.currentRoom = this.generateRoom();
       this.currentCorridor = "none";
       this.explorationD12 = 0;
-      this.roomRate < 6 ? this.roomRate+=3:this.roomRate;
+      this.roomRate < 6 ? this.roomRate += 3 : this.roomRate;
     } else {
       // Corridor
       //console.log("CORRIDOR !!");
 
       this.explorate2();
       if (this.explorationD12 == 4 || this.explorationD12 == 10 || this.explorationD12 == 12) {
-        this.roomRate < 6 ? this.roomRate+=3:this.roomRate;
+        this.roomRate < 6 ? this.roomRate += 3 : this.roomRate;
       } else if (this.explorationD12 != 7) {
-        this.roomRate > 2 ? this.roomRate-=2:this.roomRate;
+        this.roomRate > 2 ? this.roomRate -= 2 : this.roomRate;
       }
     }
     //console.log("Final room rate: " + this.roomRate);
   }
 
-  
+
 
   explorate2() {
-    this.explorationD12 = Math.floor((Math.random() * 6) + 1)  + Math.floor((Math.random() * 6) + 1);
+    this.explorationD12 = this.mathService.getRandomValue(6) + this.mathService.getRandomValue(6);
 
     var explorationResult = explorations.find(x => x.id == this.explorationD12).desc;
 
@@ -87,9 +89,9 @@ export class ExplorationManagerComponent implements OnInit {
       if (explorationResult.indexOf("room") != -1) {
         this.currentRoom = this.generateRoom();
       } else if (explorationResult.indexOf("relaunch") != -1) {
-        this.explorationD12 = Math.floor((Math.random() * 11) + 2);
+        this.explorationD12 = this.mathService.getRandomValue(6) + this.mathService.getRandomValue(6);
         while (this.explorationD12 == 7 || this.explorationD12 == 9) {
-          this.explorationD12 = Math.floor((Math.random() * 11) + 2);
+          this.explorationD12 = this.mathService.getRandomValue(6) + this.mathService.getRandomValue(6);
         }
         var explorationResult2 = explorations.find(x => x.id == this.explorationD12).desc;
         this.currentCorridor = this.currentCorridor.replace("relaunch", "(" + explorationResult2 + ")");
@@ -109,8 +111,8 @@ export class ExplorationManagerComponent implements OnInit {
 
   generateRoom() {
     //console.log("Nb rooms discovered: " + this.nbDiscoveredRooms);
-    
-    var roomD6 = Math.floor((Math.random() * 6) + 1);
+
+    var roomD6 = this.mathService.getRandomValue(6);
     var indexRoom = roomD6 + this.nbDiscoveredRooms;
     if (indexRoom > 8) {
       indexRoom = 8;
@@ -122,21 +124,21 @@ export class ExplorationManagerComponent implements OnInit {
   }
 
   generateCorridor() {
-    var corridorContentD6 = Math.floor((Math.random() * 6) + 1);
+    var corridorContentD6 = this.mathService.getRandomValue(6);
     var content = corridorContents.find(x => x.id == corridorContentD6).desc;
 
-    var corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+    var corridorEndD6 = this.mathService.getRandomValue(6);
     var end = corridorEnds.find(x => x.id == corridorEndD6).desc;
 
     var end2 = "";
     if (this.firstAttempt) {
       while (corridorEndD6 == 5) {
-        corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+        corridorEndD6 = this.mathService.getRandomValue(6);
         end = corridorEnds.find(x => x.id == corridorEndD6).desc;
       }
-      corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+      corridorEndD6 = this.mathService.getRandomValue(6);
       while (corridorEndD6 == 5) {
-        corridorEndD6 = Math.floor((Math.random() * 6) + 1);
+        corridorEndD6 = this.mathService.getRandomValue(6);
       }
       end2 = corridorEnds.find(x => x.id == corridorEndD6).desc;
       end2 = ", end2: " + end2;

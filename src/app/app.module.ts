@@ -8,10 +8,12 @@ import { EventsManagerComponent } from './events-manager/events-manager.componen
 import { ExplorationManagerComponent } from './exploration-manager/exploration-manager.component';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { GlobalComponent } from './global/global.component';
+import { MathsServiceService } from './helper/maths-service.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, HelloComponent, EventsManagerComponent, ExplorationManagerComponent, ToolBarComponent, GlobalComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers:    [ MathsServiceService]
 })
 export class AppModule { }

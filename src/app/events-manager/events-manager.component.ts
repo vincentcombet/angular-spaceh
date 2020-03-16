@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import { events } from '../data/events-list';
+import { MathsServiceService } from '../helper/maths-service.service';
 
 @Component({
   selector: 'app-events-manager',
   templateUrl: './events-manager.component.html',
-  styleUrls: ['./events-manager.component.css']
+  styleUrls: ['./events-manager.component.css'],
+  providers: [MathsServiceService]
 })
 export class EventsManagerComponent implements OnInit {
   currentEvent = "none";
@@ -15,7 +17,7 @@ export class EventsManagerComponent implements OnInit {
 
   events = events;
 
-  constructor() { }
+  constructor(private mathService: MathsServiceService) { }
 
   ngOnInit() {
   }
@@ -28,8 +30,8 @@ export class EventsManagerComponent implements OnInit {
   }
 
   generateEvent() {
-    this.d3 = Math.floor((Math.random() * 3) + 1);
-    this.d6 = Math.floor((Math.random() * 6) + 1);
+    this.d3 = this.mathService.getRandomValue(3);
+    this.d6 = this.mathService.getRandomValue(6);
     this.value = this.d3*10 + this.d6;
 
     this.currentEvent = events.find(x => x.id == this.value).desc;

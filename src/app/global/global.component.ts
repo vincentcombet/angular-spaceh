@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventsManagerComponent } from '../events-manager/events-manager.component';
 import { ExplorationManagerComponent } from '../exploration-manager/exploration-manager.component';
+import { MathsServiceService } from '../helper/maths-service.service';
 
 @Component({
   selector: 'app-global',
   templateUrl: './global.component.html',
-  styleUrls: ['./global.component.less']
+  styleUrls: ['./global.component.less'],
+  providers: [MathsServiceService]
 })
 export class GlobalComponent implements OnInit {
   currentPlayer = "";
@@ -20,7 +22,7 @@ export class GlobalComponent implements OnInit {
   @ViewChild(ExplorationManagerComponent)
   private explorationManager: ExplorationManagerComponent;
 
-  constructor() { }
+  constructor(private mathService: MathsServiceService) { }
 
   ngOnInit(): void {
   }
@@ -44,12 +46,12 @@ export class GlobalComponent implements OnInit {
       this.calculateCP();
     } else {
       this.eventManager.generateEvent();
-      this.blips = "(Blips : " + Math.floor((Math.random() * 3) + 1) + ")";
+      this.blips = "(Blips : " + this.mathService.getRandomValue(3) + ")";
     }
   }
 
   calculateCP() {
-    this.commandPoint = "(CP : " + Math.floor((Math.random() * 6) + 1) + ")";
+    this.commandPoint = "(CP : " + this.mathService.getRandomValue(6) + ")";
   }
 
 }
