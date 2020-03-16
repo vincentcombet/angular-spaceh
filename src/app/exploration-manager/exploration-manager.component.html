@@ -1,6 +1,6 @@
 <div class="h-xl-250">
   <h3>
-    Exploration ({{explorationD12}}, {{nbDiscoveredRooms}}, {{roomRate}})
+    Exploration ({{explorationD12}}, {{nbDiscoveredRooms}}, {{roomRate}}, {{nbTurn}})
   </h3>
   <button (click)=explorate()>
     Exploration
@@ -11,5 +11,8 @@
   <p>
     Discovered room: {{currentRoom}}
   </p>
+  <p>
+  </p>
+  History: <div [innerHTML]="map"></div>
 </div>
 

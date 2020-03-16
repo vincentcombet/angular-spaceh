@@ -20,6 +20,7 @@ export class ExplorationManagerComponent implements OnInit {
   explorationD12: number = 0;
   roomRate = 4;
   nbTurn = 0;
+  map = "";
 
   constructor(private mathService: MathsServiceService) { }
 
@@ -33,6 +34,8 @@ export class ExplorationManagerComponent implements OnInit {
     this.firstAttempt = true;
     this.explorationD12 = 0;
     this.roomRate = 4;
+    this.nbTurn = 0;
+    this.map = ""
   }
 
   explorate_loop() {
@@ -47,29 +50,33 @@ export class ExplorationManagerComponent implements OnInit {
   explorate() {
     // 4+ room (in room list) otherwise corridor (exploration list)
     // Each time a corridor is found, -1 to find a room, each time a room is found, +1 to find a room
-
+    
     var firstExplore = this.mathService.getRandomValue(6);
     //console.log("Begin room rate: " + this.roomRate);
     console.log("First explore: " + firstExplore);
 
-    if (firstExplore >= this.roomRate && this.explorationD12 != 7) {
+    if (firstExplore < this.roomRate && this.explorationD12 != 7) {
       //Room
       //console.log("ROOM !!");
 
       this.currentRoom = this.generateRoom();
       this.currentCorridor = "none";
       this.explorationD12 = 0;
-      this.roomRate < 6 ? this.roomRate += 3 : this.roomRate;
+      this.roomRate = 0;
     } else {
       // Corridor
       //console.log("CORRIDOR !!");
 
       this.explorate2();
       if (this.explorationD12 == 4 || this.explorationD12 == 10 || this.explorationD12 == 12) {
-        this.roomRate < 6 ? this.roomRate += 3 : this.roomRate;
+        this.roomRate = 0;
       } else if (this.explorationD12 != 7) {
-        this.roomRate > 2 ? this.roomRate -= 2 : this.roomRate;
+        this.roomRate < 6 ? this.roomRate += 2 : this.roomRate;
       }
+    }
+    if (this.explorationD12 != 7) {
+      this.nbTurn++;
+      this.map += "-->" + this.currentCorridor + "/" + this.currentRoom + "<br />";
     }
     //console.log("Final room rate: " + this.roomRate);
   }
