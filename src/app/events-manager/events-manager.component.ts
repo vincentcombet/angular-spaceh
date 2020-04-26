@@ -30,7 +30,7 @@ export class EventsManagerComponent implements OnInit {
   }
 
   generateEvent() {
-    this.d3 = this.mathService.getRandomValue(3);
+    this.d3 = this.mathService.getRandomValue(6);
     this.d6 = this.mathService.getRandomValue(6);
     this.value = this.d3*10 + this.d6;
 

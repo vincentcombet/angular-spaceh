@@ -70,5 +70,100 @@ export const events = [
   {
     id: 36,
     desc: '<b>Brouillage radio (2)</b><br />Divisez les points de commandement par 2 durant le prochain tour, arrondi au supérieur.'
+  },
+  {
+    id: 41,
+    desc: '<b>Elite Genestealer (5)</b><br />Choisissez un genestealer (à défaut un blip) il double son nombre d\'actions lors de sa prochaine activation.'
+  },
+  {
+    id: 42,
+    desc: '<b>Plus de munition</b><br />Enlever D3 munitions à votre lance flamme, ou enlever 2D3 munitions à votre canon d\'assaut.'
+  },
+  {
+    id: 43,
+    desc: '<b>Auto défense</b><br />Une mitrailleuse sort d\'un mur et tir sur le Space Marine le plus avancé dans le Hulk. Il subit une attaque de tir avec 2D6 (Inefficace).'
+  },
+  {
+    id: 44,
+    desc: '<b>Piège</b><br />Un Space Marine (prit au hasard) marche sur une mine. Il subit une attaque de mêlée avec 1D6.'
+  },
+  {
+    id: 45,
+    desc: '<b>Leurre du Chaos</b><br />Lancer un D6, sur un 1, un Space Marine devient un ennemi du chaos et agit maintenant lors du tour Genestealer.'
+  },
+  {
+    id: 46,
+    desc: '<b>Confinement</b><br />Toutes les portes du Hulk présentes sur le plateau se ferment et sont condamnées.'
+  },
+  {
+    id: 51,
+    desc: '<b>Débris</b><br />Des débris tombent dans le couloir devant le Space Marine le plus avancé dans le Hulk. Ces débris peuvent être détruits au tir sur un 5+.'
+  },
+  {
+    id: 52,
+    desc: '<b>Accès cachés (4)</b><br />Placer 1 passage secret dans deux salles disponibles sur le plateau. Un Space Marine peut passer d\'un passage à l\'autre pour 1PA. 2 fois par partie maximum.'
+  },
+  {
+    id: 53,
+    desc: '<b>Porte coincés (2)</b><br />Une porte au hasard se ferme et est condamnée.'
+  },
+  {
+    id: 54,
+    desc: '<b>Interférence (2)</b><br />Lors de votre prochaine pioche de points de commandement, vous ne pourrez pas repiocher même si votre sergent est toujours en vie.'
+  },
+  {
+    id: 55,
+    desc: '<b>Flamme</b><br />Sur une case au hasard placer un piont flamme, à chaque tour les cases adjacentes à ce pion s\'enflamme. Si cet evenement est tiré une nouvelle fois, retirer tous les pions flamme. Le feu ne peut se déclancher qu\'une seule fois par partie.'
+  },
+  {
+    id: 56,
+    desc: '<b>Perturbation psychique</b><br />Une perturbation dans le warp empêche l\'archiviste d\'utiliser ses points psy au prochain tour.'
+  },
+  {
+    id: 61,
+    desc: '<b>Puissance du Warp</b><br />L\'archiviste gagne D6 points psy.'
+  },
+  {
+    id: 62,
+    desc: '<b>Trouble du Warp</b><br />L\'archiviste perd D6 points psy.'
+  },
+  {
+    id: 63,
+    desc: '<b>Tout est calme</b><br />Rien ne se passe.'
+  },
+  {
+    id: 64,
+    desc: '<b>Flash</b><br />Des spores luminescents produisent un éclat de lumière aveuglant ! Jetez un D6 pour chaque Space Marine, sur 4+ il perd son prochain tour.'
+  },
+  {
+    id: 65,
+    desc: '<b>Tout est calme</b><br />Rien ne se passe.'
+  },
+  {
+    id: 66,
+    desc: '<b>Artefact</b><br />Choisissez un Space Marine, il trouve un artefact.'
   }
+  /*
+  Elite Genestealer : Choisissez un genestealer (à défaut un blip) il double son nombre d'action lors de sa prochaine activation.
+Plus de munition : Enlever D3 munitions à votre lance flamme, ou enlever 2D3 munitions à votre canon d'assaut.
+Auto défense : Une mitrailleuse sort d'un mur et tir sur le Space Marine le plus avancé dans le Hulk. Il subit une attaque de tir avec 2D6 (Inefficace).
+Piège : Un Space Marine (prit au hasard) marche sur une mine. Il subit une attaque de mêlée avec 1D6.
+Leurre du Chaos : Lancer un D6, sur un 1, un Space Marine devient un ennemi du chaos et agit maintenant lors du tour Genestealer.
+Confinement : Toutes les portes du Hulk présentes sur le plateau se ferment et sont condamnées.
+
+Débris : Des débris tombent dans le couloir devant le Space Marine le plus avancé dans le Hulk. Ces débris peuvent être détruits au tir sur un 5+.
+Accès cachés : Placer 1 passage secret dans deux salles disponibles sur le plateau. Un Space Marine peut passer d'un passage à l'autre pour 1PA. 2 fois par partie maximum.
+Porte coincés : Une porte au hasard se ferme et est condamnée.
+Interférence : Lors de votre prochaine pioche de points de commandement, vous ne pourrez pas repiocher même si votre sergent est toujours en vie.
+Flamme : Sur une case au hasard placer un piont flamme, à chaque tour les cases adjacentes à ce pion s'enflamme. Si cet evenement est tiré une nouvelle fois, retirer tous les pions flamme. Le feu ne peut se déclancher qu'une seule fois par partie.
+Perturbation psychique : Une perturbation dans le warp empêche l'archiviste d'utiliser ses points psy au prochain tour.
+
+Puissance du Warp : L'archiviste gagne D6 points psy.
+Trouble du Warp : L'archiviste perd D6 points psy.
+Tout est calme : Rien ne se passe
+Flash : Des spores luminescents produisent un éclat de lumière aveuglant ! Jetez un D6 pour chaque Space Marine, sur 4+ il perd son prochain tour.
+Tout est calme : Rien ne se passe
+Artefact: Choisissez un Space Marine, il trouve un artefact.
+
+*/
 ];
