@@ -15,6 +15,36 @@ export class GlobalComponent implements OnInit {
   gameStarted = false;
   blips = "";
   commandPoint = "";
+  ssssEvent="";
+  ssssCoordX=0;
+  ssssCoordY=0;
+  sabot = [
+  'Activation de Horde', 
+  'Activation de Horde', 
+  'Activation de Horde', 
+  'Activation de Monstre', 
+  'Activation de Monstre', 
+  'Activation de Monstre', 
+  'Embuscade !', 
+  'Embuscade !', 
+  '#Frénésie !', 
+  '#Frénésie !', 
+  'Monstre errant$', 
+  'Monstre errant$', 
+  '#Qu’est-ce qu il a dans sa poche ?', 
+  'Perte d équilibre', 
+  '#Scénario$', 
+  'Flux de Mana', 
+  '#Ça pourrait être utile !', 
+  'Renforts', 
+  '#J ai marché sur une vipère !$', 
+  'Ils sont à nos trousses !', 
+  '#Ça peut pas être pire !$', 
+  'Piège !$', 
+  'Il est costaud celui-là !'
+  ];
+  defausse = [];
+  final = [];
 
   @ViewChild(EventsManagerComponent)
   private eventManager: EventsManagerComponent;
@@ -25,6 +55,7 @@ export class GlobalComponent implements OnInit {
   constructor(private mathService: MathsServiceService) { }
 
   ngOnInit(): void {
+    this.flushCards(this.sabot);
   }
 
   startGame() {
@@ -52,6 +83,47 @@ export class GlobalComponent implements OnInit {
 
   calculateCP() {
     this.commandPoint = "(CP : " + this.mathService.getRandomValue(6) + ")";
+  }
+
+  ///////////////////////////////////////////
+  // SS & SS //
+  ///////////////////////////////////////////
+
+  flushCards(table: Array<String>) {
+    var intermediarie = table.slice();
+    for (let i = 0; i < table.length; i++) {
+      var aleat = Math.floor(Math.random() * Math.floor(intermediarie.length));
+      console.log(aleat);
+      this.final[i] = intermediarie[aleat];
+      intermediarie.splice(aleat, 1);
+    }
+    console.log(this.final);
+  }
+
+  generateSSSSCoordonnates() {
+    this.ssssCoordX = this.mathService.getRandomValue(36);
+    this.ssssCoordY = this.mathService.getRandomValue(36);
+  }
+
+  generateSSSSEvent() {
+    var aleat = Math.floor(Math.random() * Math.floor(this.final.length));
+
+    this.ssssEvent = this.final[aleat];
+    if (!this.ssssEvent.startsWith('#')) {
+      this.defausse.push(this.ssssEvent);
+    }
+
+    this.final.splice(aleat, 1);
+
+    if (this.ssssEvent.endsWith('$')) {
+      console.log('Reflush !');
+      this.final = this.final.concat(this.defausse);
+      this.defausse = [];
+      this.flushCards(this.final);
+    }
+
+    console.log(this.final);
+    console.log(this.defausse);
   }
 
 }

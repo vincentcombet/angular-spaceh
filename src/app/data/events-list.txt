@@ -144,10 +144,7 @@ export const events = [
     desc: '<b>Artefact</b><br />Choisissez un Space Marine, il trouve un artefact, '
   }
   /*
-
-
-  
-Elite Genestealer : Choisissez un genestealer (à défaut un blip) il double son nombre d'action lors de sa prochaine activation.
+  Elite Genestealer : Choisissez un genestealer (à défaut un blip) il double son nombre d'action lors de sa prochaine activation.
 Plus de munition : Enlever D3 munitions à votre lance flamme, ou enlever 2D3 munitions à votre canon d'assaut.
 Auto défense : Une mitrailleuse sort d'un mur et tir sur le Space Marine le plus avancé dans le Hulk. Il subit une attaque de tir avec 2D6 (Inefficace).
 Piège : Un Space Marine (prit au hasard) marche sur une mine. Il subit une attaque de mêlée avec 1D6 - 1.
